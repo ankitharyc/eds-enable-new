@@ -1,0 +1,22 @@
+.embed {
+  margin: 24px 0;
+}
+
+.embed > div {
+  max-width: 100%;
+}
+
+.embed iframe {
+  display: block;
+}
+
+.embed.embed-twitter,
+.embed.embed-x {
+  display: flex;
+  justify-content: center;
+}
+
+.embed .twitter-tweet {
+  margin-left: auto;
+  margin-right: auto;
+}
