@@ -1,21 +1,6 @@
-const PAGE_SIZE = 10;
+import fetchPlaceholders from '../../scripts/placeholders.js';
 
-/**
- * Fetches the "loadMore" label from the placeholders sheet.
- * Falls back to "Load more" if the sheet or key is unavailable.
- * @returns {Promise<string>}
- */
-async function getLoadMoreLabel() {
-  try {
-    const resp = await fetch('/placeholders.json');
-    if (!resp.ok) return 'Load more';
-    const json = await resp.json();
-    const row = (json.data || []).find((r) => r.Key === 'loadMore');
-    return (row && row.Text) ? row.Text : 'Load more';
-  } catch (e) {
-    return 'Load more';
-  }
-}
+const PAGE_SIZE = 10;
 
 /**
  * Fetches the employee records from the given JSON source.
@@ -64,10 +49,11 @@ export default async function decorate(block) {
   else if (rawText.startsWith('/')) source = rawText;
 
   // 2. Load data + label in parallel
-  const [employees, loadMoreLabel] = await Promise.all([
+  const [employees, placeholders] = await Promise.all([
     fetchEmployees(source),
-    getLoadMoreLabel(),
+    fetchPlaceholders(),
   ]);
+  const loadMoreLabel = placeholders.loadMore || 'Load more';
 
   // 3. Transform DOM
   block.textContent = '';
