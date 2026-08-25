@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 /**
- * loads and decorates the banner block
+ * loads and decorates the banner blocks
  * @param {Element} block The banner block element
  */
 export default function decorate(block) {
