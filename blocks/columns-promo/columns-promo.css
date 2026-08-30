@@ -1,0 +1,88 @@
+/* Block: columns-promo -- single-row media/text promo.
+   Variant of `columns`: rounded 3x2 cover image beside a heading, large lead
+   paragraph and a dark pill CTA. Kept separate from the local columns
+   article-header (byline) variant so promo body text is NOT restyled as a
+   small grey byline. Values match source computed styles
+   (wknd-trendsetters.site/fashion-trends-young-adults-casual-sport). */
+
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-promo img {
+  width: 100%;
+}
+
+.columns-promo > div > div {
+  order: 1;
+}
+
+.columns-promo > div > .columns-promo-img-col {
+  order: 0;
+}
+
+.columns-promo > div > .columns-promo-img-col img {
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Text cell */
+.columns-promo > div > div h2 {
+  margin: 0;
+}
+
+.columns-promo > div > div p {
+  margin: 16px 0 0;
+  font-size: var(--body-font-size-l, 18px);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* CTA pill button (link paragraph) */
+.columns-promo > div > div p:has(a) {
+  margin-top: 32px;
+  line-height: 0;
+}
+
+.columns-promo a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  border: 2px solid var(--dark-color);
+  border-radius: 9999px;
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.columns-promo a:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .columns-promo > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 64px;
+  }
+
+  .columns-promo > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-promo > div > div h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

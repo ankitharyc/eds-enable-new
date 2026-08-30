@@ -1,16 +1,15 @@
 {
-  "metadata": {
-    "projectType": "da"
-  },
   "templates": [
     {
-      "name": "about-us",
+      "name": "content-landing",
       "urls": [
-        "https://wknd-trendsetters.site/about-us"
+        "https://wknd-trendsetters.site/",
+        "https://wknd-trendsetters.site/about-us",
+        "https://wknd-trendsetters.site/fashion-trends-of-the-season",
+        "https://wknd-trendsetters.site/fashion-trends-young-adults"
       ],
-      "representativeUrl": "https://wknd-trendsetters.site/about-us",
-      "urlPattern": "/*",
-      "description": "About Us page — hero intro, article header, photo gallery, profile tabs, latest articles, FAQ accordion, and CTA banner.",
+      "coverageGaps": [],
+      "description": "Rich content page: hero intro, alternating media/text sections, gallery, tabs and CTA banner (homepage/about style)",
       "blocks": [
         {
           "name": "hero",
@@ -136,6 +135,50 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "listing",
+      "urls": [
+        "https://wknd-trendsetters.site/blog",
+        "https://wknd-trendsetters.site/case-studies",
+        "https://wknd-trendsetters.site/fashion-insights"
+      ],
+      "coverageGaps": [],
+      "description": "Listing/index page: heading intro followed by a responsive grid of linked cards",
+      "blocks": []
+    },
+    {
+      "name": "blog-article",
+      "urls": [
+        "https://wknd-trendsetters.site/blog/ace-pro-court-polo",
+        "https://wknd-trendsetters.site/blog/fashion-blog-post",
+        "https://wknd-trendsetters.site/blog/fashion-trends-young-culture",
+        "https://wknd-trendsetters.site/blog/fashion-trends-young-style",
+        "https://wknd-trendsetters.site/blog/flip-flop-summer-style",
+        "https://wknd-trendsetters.site/blog/latest-trends-young-casual-fashion",
+        "https://wknd-trendsetters.site/blog/street-style-trends"
+      ],
+      "coverageGaps": [],
+      "description": "Blog article: article header with cover image and byline, long-form body sections, related content",
+      "blocks": []
+    },
+    {
+      "name": "faq",
+      "urls": [
+        "https://wknd-trendsetters.site/faq"
+      ],
+      "coverageGaps": [],
+      "description": "FAQ page: heading intro followed by an accordion of expandable question/answer items",
+      "blocks": []
+    },
+    {
+      "name": "article-alt",
+      "urls": [
+        "https://wknd-trendsetters.site/fashion-trends-young-adults-casual-sport"
+      ],
+      "coverageGaps": [],
+      "description": "Standalone article variant with a distinct top-section layout",
+      "blocks": []
     }
   ]
 }
