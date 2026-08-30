@@ -63,7 +63,19 @@ export default function parse(element, { document }) {
     // Skip cards with no usable content.
     if (!img && !bodyContent.length) return;
 
-    cells.push([img || '', bodyContent.length ? bodyContent : '']);
+    // One card per row (single column), mirroring the article-list block that
+    // reliably produces multiple rows through the bundled importer. Image and
+    // body are stacked inside one card container; the block decorator splits
+    // them into image/body wrappers.
+    const cardDiv = document.createElement('div');
+    if (img) {
+      const imgWrap = document.createElement('p');
+      imgWrap.append(img);
+      cardDiv.append(imgWrap);
+    }
+    bodyContent.forEach((node) => cardDiv.append(node));
+
+    cells.push([cardDiv]);
   });
 
   // Empty-block guard: nothing extracted, unwrap in place.
