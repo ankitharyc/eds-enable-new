@@ -10,31 +10,33 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+@import url('brand.css');
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+:root {
+  /* colors — see brand.css (wknd-trendsetters tokens) */
+  --background-color: #fff;
+  --light-color: #f5f5f5;
+  --dark-color: #000;
+  --text-color: #000;
+  --link-color: #666;
+  --link-hover-color: #000;
+
+  /* fonts — see brand.css */
+  --body-font-family: "Instrument Sans", sans-serif;
+  --heading-font-family: "Syncopate", sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 32px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
   /* nav height */
   --nav-height: 64px;
@@ -107,8 +109,10 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   scroll-margin: 40px;
 }
 
@@ -163,6 +167,20 @@ a:any-link {
 a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+/* section background variants (from source: light grey / dark) */
+main .section.light {
+  background-color: var(--light-color);
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+main .section.dark a:any-link {
+  color: #fff;
 }
 
 /* buttons */
