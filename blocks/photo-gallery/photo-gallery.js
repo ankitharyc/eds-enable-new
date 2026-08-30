@@ -259,14 +259,19 @@ function createModal(images, startIndex) {
 }
 
 export default function decorate(block) {
-  const images = [];
-  [...block.children].forEach((row) => {
-    const image = row.querySelector('img');
+  // Content may author images either as one image per row or as multiple
+  // image cells within a single row. Collect every image in the block so all
+  // gallery photos are rendered regardless of the authored table shape.
+  const images = [...block.querySelectorAll('img')];
+  images.forEach((image) => {
     const imgSrc = image.getAttribute('src');
-    const altText = row.querySelector('p');
-    image.setAttribute('data-display', altText?.textContent.trim() || '');
-    image.setAttribute('alt', altText?.textContent.trim() || imgSrc.split('/').pop().split('.')[0]);
-    images.push(image);
+    const cell = image.closest('div');
+    const caption = cell?.querySelector('p');
+    const altText = caption?.textContent.trim()
+      || image.getAttribute('alt')
+      || imgSrc.split('/').pop().split('.')[0];
+    image.setAttribute('data-display', altText);
+    image.setAttribute('alt', altText);
   });
 
   let currentImageIndex = 0;

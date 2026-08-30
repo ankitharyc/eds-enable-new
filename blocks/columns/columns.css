@@ -1,3 +1,7 @@
+/* ============================================================
+ * columns — shared block (generic boilerplate use preserved)
+ * ============================================================ */
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +33,43 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+/* ============================================================
+ * Article-header variant (image left + heading/byline right).
+ * Scoped to the single-row instance so generic multi-row
+ * columns usage is unaffected. Values extracted from source:
+ * wknd-trendsetters.site/about-us article header.
+ * ============================================================ */
+
+/* Rounded, cropped hero image (source: aspect 3/2, cover, 20px radius) */
+.columns > div:only-child > .columns-img-col img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Heading (source: 40px / 44px desktop, uppercase, no top margin) */
+.columns > div:only-child > div h2 {
+  margin: 0;
+}
+
+/* Byline lines (source: 14px, grey --link-color) */
+.columns > div:only-child > div p {
+  margin: 16px 0 0;
+  color: var(--link-color);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.columns > div:only-child > div p + p {
+  margin-top: 8px;
+}
+
+@media (width >= 900px) {
+  .columns > div:only-child > div h2 {
+    font-size: 40px;
+    line-height: 44px;
   }
 }

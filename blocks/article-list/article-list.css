@@ -1,24 +1,25 @@
+/* Block: article-list -- CSS extracted from source computed styles */
+
 .article-list .article-list-items {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 16px;
 }
 
 .article-list .article-list-card {
-  border: 1px solid #dadada;
-  border-radius: 8px;
+  border: 1px solid rgb(232 232 232);
+  border-radius: 20px;
   overflow: hidden;
   background-color: var(--background-color);
 }
 
 .article-list .article-list-link {
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 100%;
-  color: inherit;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -28,26 +29,49 @@
 
 .article-list .article-list-image img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 8 / 5;
   object-fit: cover;
 }
 
 .article-list .article-list-body {
-  padding: 16px 20px 20px;
+  padding: 24px;
 }
 
-.article-list .article-list-body h3 {
-  margin: 0 0 8px;
-  font-size: var(--heading-font-size-s);
+.article-list .article-list-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.article-list .article-list-body p {
+.article-list .article-list-tag {
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background-color: rgb(244 254 139);
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.article-list .article-list-date {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--link-color);
+}
+
+.article-list .article-list-title {
   margin: 0;
-  color: #4a4a4a;
-}
-
-.article-list .article-list-link:hover h3 {
-  text-decoration: underline;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-color);
+  text-transform: uppercase;
 }
 
 .article-list .article-list-empty {
@@ -63,6 +87,6 @@
 
 @media (width >= 900px) {
   .article-list .article-list-items {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }

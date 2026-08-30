@@ -1,37 +1,142 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+/* Hero block — wknd-trendsetters /about-us
+   Values extracted from source computed styles (see migration-work/hero-extracted.css).
+   Decorated DOM: .hero > div(row1: images cell, 3x p>picture) + div(row2: text cell: h1, p, 2x p>a).
+   Source layout: text left / images right on desktop; text first on mobile. */
+
+/* Section: full-width light-grey background with vertical padding.
+   Horizontal padding + 1200px max-width come from global `main > .section > div` (.hero-wrapper). */
+.hero-container {
+  margin: 0;
+  padding: 64px 0;
+  background-color: var(--light-color);
 }
 
+/* Block layout — mobile first: single column, text before images */
 .hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
+.hero > div:nth-child(1) {
+  order: 1; /* images */
+}
+
+.hero > div:nth-child(2) {
+  order: 0; /* text */
+}
+
+/* Image cell — 2-column grid of thumbnails */
+.hero > div:nth-child(1) > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.hero > div:nth-child(1) p {
+  margin: 0;
+  line-height: 0;
+}
+
+.hero > div:nth-child(1) picture {
+  display: block;
+}
+
+.hero > div:nth-child(1) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Text cell */
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  font-size: 28px;
+  line-height: 30.8px;
+  letter-spacing: -0.56px;
+}
+
+/* subheading (base paragraph in text cell) */
+.hero > div:nth-child(2) p {
+  margin: 24px 0 0;
+  font-size: var(--body-font-size-m); /* 18px */
+  line-height: 28.8px;
+  color: var(--text-color);
+}
+
+/* Buttons — links are not auto-decorated; style them directly.
+   The two link paragraphs sit side by side. */
+.hero > div:nth-child(2) p:has(a) {
+  display: inline-block;
+  margin: 32px 0 0;
+  line-height: 0;
+}
+
+.hero > div:nth-child(2) p:has(a):last-of-type {
+  margin-left: 16px;
+}
+
+.hero > div:nth-child(2) a:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.hero > div:nth-child(2) a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  border: 2px solid var(--dark-color);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* primary — first link paragraph */
+.hero > div:nth-child(2) p:has(a):nth-last-of-type(2) a:any-link {
+  background-color: var(--dark-color);
   color: var(--background-color);
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+/* secondary — last link paragraph */
+.hero > div:nth-child(2) p:has(a):last-of-type a:any-link {
+  background-color: var(--background-color);
+  color: var(--dark-color);
 }
 
 @media (width >= 900px) {
+  .hero-container {
+    padding: 128px 0;
+  }
+
+  /* text left, images right, vertically centered */
   .hero {
-    padding: 40px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 64px;
+    align-items: center;
+  }
+
+  .hero > div:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1; /* images */
+  }
+
+  .hero > div:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1; /* text */
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    line-height: 61.6px;
+    letter-spacing: -1.12px;
   }
 }

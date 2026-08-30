@@ -1,0 +1,151 @@
+/* Block: tabs-profile — profile/testimonial tab switcher */
+
+/* Values extracted from source computed styles (wknd-trendsetters /about-us). */
+
+.tabs-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Active content pane (photo + name/role + quote) ---------- */
+.tabs-profile .tabs-profile-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-profile .tabs-profile-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-profile .tabs-profile-panel-body {
+  display: block;
+}
+
+.tabs-profile .tabs-profile-panel-media {
+  margin: 0;
+  line-height: 0;
+}
+
+.tabs-profile .tabs-profile-panel-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* role line and quote paragraphs */
+.tabs-profile .tabs-profile-panel-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--text-color);
+}
+
+/* name (strong) in the pane */
+.tabs-profile .tabs-profile-panel-body strong {
+  display: block;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--text-color);
+}
+
+/* blank-line gap between the name/role block and the quote */
+.tabs-profile .tabs-profile-panel-body p:last-child {
+  margin-top: 32px;
+}
+
+/* ---------- Tab menu (avatar + name + role) ---------- */
+.tabs-profile .tabs-profile-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+.tabs-profile .tabs-profile-list button.tabs-profile-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid rgb(232 232 232);
+  border-radius: 16px;
+  background-color: rgb(239 239 239);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  text-align: left;
+  line-height: 1.4;
+  cursor: pointer;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.tabs-profile .tabs-profile-list button.tabs-profile-tab[aria-selected='true'] {
+  border-color: var(--text-color);
+  background-color: var(--light-color);
+}
+
+/* circular avatar */
+.tabs-profile .tabs-profile-tab-media {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  border-radius: 9999px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tabs-profile .tabs-profile-tab-media img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.tabs-profile .tabs-profile-tab-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* name and role lines inside a tab */
+/* stylelint-disable-next-line no-descending-specificity */
+.tabs-profile .tabs-profile-tab-body p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  color: var(--text-color);
+}
+
+.tabs-profile .tabs-profile-tab-body strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22.4px;
+  color: var(--text-color);
+}
+
+/* ---------- Desktop layout ---------- */
+@media (width >= 900px) {
+  .tabs-profile .tabs-profile-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tabs-profile .tabs-profile-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

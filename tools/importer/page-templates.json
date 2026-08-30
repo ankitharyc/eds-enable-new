@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "about-us",
+      "urls": [
+        "https://wknd-trendsetters.site/about-us"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/about-us",
+      "urlPattern": "/*",
+      "description": "About Us page — hero intro, article header, photo gallery, profile tabs, latest articles, FAQ accordion, and CTA banner.",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#main-content > header.section.secondary-section .grid-layout"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1) .grid-layout"
+          ]
+        },
+        {
+          "name": "photo-gallery",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(2) .grid-layout.desktop-4-column"
+          ]
+        },
+        {
+          "name": "tabs-profile",
+          "instances": [
+            "#main-content > section.section:nth-of-type(3) .tabs-wrapper"
+          ]
+        },
+        {
+          "name": "article-list",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(4) .grid-layout.desktop-4-column"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "#main-content > section.section:nth-of-type(5) .faq-list"
+          ]
+        },
+        {
+          "name": "banner",
+          "instances": [
+            "#main-content > section.section.inverse-section"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "Hero intro",
+          "selector": "#main-content > header.section.secondary-section",
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "Article header",
+          "selector": "#main-content > section.section:nth-of-type(1)",
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "Style in every snapshot",
+          "selector": "#main-content > section.section.secondary-section:nth-of-type(2)",
+          "style": "secondary",
+          "blocks": [
+            "photo-gallery"
+          ],
+          "defaultContent": [
+            "#main-content > section.section.secondary-section:nth-of-type(2) h2",
+            "#main-content > section.section.secondary-section:nth-of-type(2) p"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "Profile tabs",
+          "selector": "#main-content > section.section:nth-of-type(3)",
+          "style": null,
+          "blocks": [
+            "tabs-profile"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "Latest articles",
+          "selector": "#main-content > section.section.secondary-section:nth-of-type(4)",
+          "style": "secondary",
+          "blocks": [
+            "article-list"
+          ],
+          "defaultContent": [
+            "#main-content > section.section.secondary-section:nth-of-type(4) h2",
+            "#main-content > section.section.secondary-section:nth-of-type(4) p"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "FAQ",
+          "selector": "#main-content > section.section:nth-of-type(5)",
+          "style": null,
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": [
+            "#main-content > section.section:nth-of-type(5) h2",
+            "#main-content > section.section:nth-of-type(5) p"
+          ]
+        },
+        {
+          "id": "rc7",
+          "name": "CTA banner",
+          "selector": "#main-content > section.section.inverse-section",
+          "style": null,
+          "blocks": [
+            "banner"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

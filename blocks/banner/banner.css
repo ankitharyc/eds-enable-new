@@ -1,41 +1,132 @@
-.banner > div {
-  position: relative;
+/* Block: banner -- dark full-bleed CTA banner with background image, overlay and pill button.
+   Values extracted from source computed styles (wknd-trendsetters /about-us). */
+
+/* Full-bleed dark frame around the banner card */
+main .section.banner-container {
+  margin: 0;
+  padding: 64px 0;
+  background-color: var(--dark-color);
+  color: #fff;
 }
 
+/* The banner block becomes the rounded overlay card */
+.banner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 448px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Gradient overlay (extracted): darkens the bottom for legible text */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(to top, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 0%) 60%);
+  pointer-events: none;
+}
+
+/* Image row -> absolute cover image behind everything */
+.banner > div:first-child {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.banner .banner-image,
 .banner .banner-image picture {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .banner .banner-image img {
   width: 100%;
-  height: auto;
-  min-height: 300px;
+  height: 100%;
   object-fit: cover;
 }
 
+/* Text row -> sits above image + overlay, anchored bottom-left */
+.banner > div:last-child {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
 .banner .banner-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 24px;
-  color: var(--text-color);
+  max-width: 672px;
+  padding: 32px;
+  color: #fff;
 }
 
-.banner.dark .banner-text {
-  color: var(--background-color);
-  text-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+.banner .banner-text h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-.banner .banner-text h1,
-.banner .banner-text h2,
-.banner .banner-text h3 {
-  margin-top: 0;
+.banner .banner-text p {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #fff;
 }
 
-@media (width >= 600px) {
+/* Button paragraph (the last <p>, may become .button-container) */
+.banner .banner-text p:last-child {
+  margin-top: 32px;
+}
+
+/* White pill CTA (overrides global a.button defaults) */
+main .banner .banner-text a,
+main .banner .banner-text a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  background-color: #fff;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22.4px;
+  text-decoration: none;
+}
+
+main .banner .banner-text a:hover,
+main .banner .banner-text a.button:any-link:hover,
+main .banner .banner-text a.button:any-link:focus-visible {
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  main .section.banner-container {
+    padding: 128px 0;
+  }
+
   .banner .banner-text {
-    padding: 48px;
+    padding: 64px;
+  }
+
+  .banner .banner-text h2 {
+    font-size: 56px;
+    line-height: 61.6px;
+    letter-spacing: -1.12px;
   }
 }
