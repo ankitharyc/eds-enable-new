@@ -1,0 +1,86 @@
+/* Block: cards-trend -- trend-alert card grid.
+   Variant of `cards`: rounded, linked cards with a yellow category tag pill,
+   uppercase title and description. Values match source computed styles
+   (wknd-trendsetters.site/fashion-trends-young-adults-casual-sport). */
+
+.cards-trend > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.cards-trend > ul > li {
+  border: 1px solid rgb(232 232 232);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.cards-trend .cards-trend-link {
+  display: block;
+  height: 100%;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.cards-trend .cards-trend-card-image {
+  line-height: 0;
+}
+
+.cards-trend .cards-trend-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cards-trend .cards-trend-card-body {
+  padding: 24px;
+}
+
+.cards-trend .cards-trend-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: rgb(244 254 139);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.cards-trend .cards-trend-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.cards-trend .cards-trend-card-body p {
+  margin: 12px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--link-color);
+}
+
+@media (width >= 600px) {
+  .cards-trend > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-trend > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
