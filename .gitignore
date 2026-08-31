@@ -8,6 +8,15 @@ helix-importer-ui
 *.bak
 .idea
 
+# Migration scratch & build artifacts (regenerable, not source)
+.migration/
+migration-work/
+migration-work-*/
+catalog/
+tools/importer/*.bundle.js
+tools/importer/reports/
+tools/importer/page-templates.*.backup.json
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
