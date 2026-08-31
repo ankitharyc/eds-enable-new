@@ -138,7 +138,9 @@ function buildCard(article) {
  */
 export default async function decorate(block) {
   // Inline mode: cards are authored directly in the block as links with images.
-  const inlineAnchors = [...block.querySelectorAll(':scope > div > div > a')]
+  // Match any descendant anchor that wraps a picture (robust to EDS decoration,
+  // which can re-nest anchors so a fixed `:scope > div > div > a` no longer matches).
+  const inlineAnchors = [...block.querySelectorAll('a')]
     .filter((a) => a.querySelector('picture'));
 
   if (inlineAnchors.length) {
